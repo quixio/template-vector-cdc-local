@@ -1,4 +1,4 @@
-# Application to Create Embeddings 
+# Application to Create Embeddings and Produce them to Kafka
 
 ## Overview
 This Python application uses Quix Streams to process real-time data and creates embeddings for a text field called "description" using the FastEmbed library. It is designed to process a Change Data Capture (CDC) data stream for updates to a book catalog, creating embeddings for the book descriptions, and publishing the results to an output topic.
