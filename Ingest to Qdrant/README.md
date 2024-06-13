@@ -12,8 +12,8 @@ This Python application integrates Quix Streams with a local Qdrant Vector Datab
 Set environment variables for the input topic and Upstash Vector Database credentials (endpoint and token) before running the script.
 
 ## Dependencies
-- quixstreams
-- qdrant-client
+- `quixstreams`
+- `qdrant-client`
 
 ## Usage
 Ensure that the Quix Streams and Qdrant dependencies are set up in your environment. Run the application after setting the required environment variables for it to automatically ingest data to the configured vector database.
