@@ -14,8 +14,8 @@ This Python application uses Quix Streams to process real-time data and creates 
 Set environment variables for input and output topics before running the script.
 
 ## Dependencies
-- quixstreams
-- fastembed
+- `quixstreams`
+- `fastembed`
 
 ## Usage
 Execute the script in an environment where Quix Streams and the required Python packages are available. The script is configured to auto-create topics and begin processing as soon as it is launched.
