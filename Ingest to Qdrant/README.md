@@ -1,30 +1,20 @@
-# Starter transformation
+# Ingesting vectors into Qdrant using Quix Streams
 
-[This code sample](https://github.com/quixio/quix-samples/tree/develop/python/destinations/starter_destination) demonstrates how to consume data from a Kafka topic, perform an operation on that data, then persist or publish that data to an external destination.
+## Overview
+This Python application integrates Quix Streams with a local Qdrant Vector Database to ingest vector data efficiently. It is tailored for handling real-time data streams, specifically ingesting vector embeddings and related metadata into a vector database.
 
-The simple boilerplate code consumes to data from the source topic, prints the content to console output and publishes to any destination based on code that that you must add yourself.
+## Functionality
+- **Data Input**: Reads vectors and metadata from an input topic using environment variables for the topic name.
+- **Data Processing**:
+  - Ingests vectors and metadata (like name, description, author, year) into a Qdrant Vector Database.
 
-To use the sample, first modify the Python code to publish to your chosen destination(s).
+## Configuration
+Set environment variables for the input topic and Upstash Vector Database credentials (endpoint and token) before running the script.
 
-## How to run
+## Dependencies
+- quixstreams
+- qdrant-client
 
-Create a [Quix](https://portal.platform.quix.ai/self-sign-up?xlink=github) account or log-in and visit the Samples to use this project.
+## Usage
+Ensure that the Quix Streams and Qdrant dependencies are set up in your environment. Run the application after setting the required environment variables for it to automatically ingest data to the configured vector database.
 
-Clicking `Edit code` on the Sample, forks the project to your own Git repo so you can customize it before deploying.
-
-## Environment variables
-
-The code sample uses the following environment variables:
-
-- **input**: Name of the input topic to listen to.
-- **output**: Name of the output topic to write to.
-
-## Contribute
-
-Submit forked projects to the Quix [GitHub](https://github.com/quixio/quix-samples) repo. Any new project that we accept will be attributed to you and you'll receive $200 in Quix credit.
-
-## Open source
-
-This project is open source under the Apache 2.0 license and available in our [GitHub](https://github.com/quixio/quix-samples) repo.
-
-Please star us and mention us on social to show your appreciation.
