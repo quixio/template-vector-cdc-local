@@ -1,0 +1,9 @@
+# Use the official pgAdmin image from the Docker library
+FROM dpage/pgadmin4:latest
+
+# Set environment variables
+ENV PGADMIN_DEFAULT_EMAIL=admin@admin.com
+ENV PGADMIN_DEFAULT_PASSWORD=root
+
+# Expose port 80 on which pgAdmin runs
+EXPOSE 80

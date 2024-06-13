@@ -1,0 +1,5 @@
+name: Test PostgreSQL Database
+language: python
+variables: []
+dockerfile: dockerfile
+defaultFile: README.md

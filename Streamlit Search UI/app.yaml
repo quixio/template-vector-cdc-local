@@ -1,0 +1,21 @@
+name: Streamlit dashboard
+language: python
+variables:
+  - name: collectionname
+    inputType: FreeText
+    description: ''
+    defaultValue: books-catalog
+    required: false
+  - name: qdrant_apikey
+    inputType: Secret
+    description: ''
+    defaultValue: qdrant_apikey
+    required: false
+  - name: qdrant_url
+    inputType: FreeText
+    description: ''
+    defaultValue: https://620342be-1e5e-401c-98da-42bcaddaed57.us-east4-0.gcp.cloud.qdrant.io:6333
+    required: false
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: main.py
