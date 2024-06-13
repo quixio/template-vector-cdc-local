@@ -1,31 +1,10 @@
-# Sample template
+# Using the Streamlit Vector Search UI
+The demo application contains a simple search UI (built with Streamlit) to help you test the vector search. 
 
-[This project](https://github.com/quixio/quix-samples/tree/main/python/empty) is a template for developing Quix Code Samples with Python.
+You can access it under the URL: http:// localhost:8082
 
-## How to run
+For example, in the search UI, try searching for "battle in space" - the top result should be "The War of the Worlds". It's not quite right since the book is about a battle that takes place on Earth, but it looks like it's currently the best batch in our book catalog.
 
-Create a [Quix](https://portal.platform.quix.ai/self-sign-up?xlink=github) account or log-in and visit the Samples to use this project.
+![Streamlit Screenshot](https://github.com/quixio/template-vector-cdc-local/assets/116729413/71ee419c-c8cc-44e3-bfa9-d761ccd827dc)
 
-Clicking `Edit code` on the Sample, forks the project to your own Git repo so you can customize it before deploying.
-
-## Environment variables
-
-This code sample uses the following environment variables:
-
-- **VariableName**: {Description of the variable}
-- **input**: {Description of the variable}
-- **output**: {Description of the variable}
-
-## Requirements/prerequisites (optional)
-
-{This will contain any external resource needed to run this sample and the instructions to get them.}
-
-## Contribute
-
-Submit forked projects to the Quix [GitHub](https://github.com/quixio/quix-samples) repo. Any new project that we accept will be attributed to you and you'll receive $200 in Quix credit.
-
-## Open source
-
-This project is open source under the Apache 2.0 license and available in our [GitHub](https://github.com/quixio/quix-samples) repo.
-
-Please star us and mention us on social to show your appreciation.
+_We can speculate that it matched as the top result because "Martian" is semantically close to "space" and "invasion" is semantically close to "battle". Note that you'll likely get a different result if you use a more sophisticated embedding model such as sentence transformers, however, it's a pretty heavy library which is why we left it out of this demo._
