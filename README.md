@@ -11,10 +11,11 @@ Change Data Capture (CDC) is crucial for RAG-powered applications that require r
 
 This tutorial leverages:
 - **PostgreSQL**: Source database for capturing changes.
+- **pgAdmin**: Admmin UI for administering data in the Postgresql database (used as a stand-in for a Product Catalog Management UI).
 - **Redpanda**: A Kafka-compatible streaming data platform that is easy to run locally.
 - **Quix Streams**: A Python-based framework for stream processing, handling the ingestion and transformation of streaming data.
 - **Qdrant**: An open-source vector database designed for efficient and scalable similarity search and nearest neighbor search tasks
-- **Streamlit**: An open-source Python library that simplifies the process of creating and sharing custom web applications for machine learning and data science projects. 
+- **Streamlit**: An open-source Python library that simplifies the process of creating and sharing custom web applications for machine learning and data science projects (used to run a simple UI that is a stand-in for a Product Search UI). 
 
 ## Getting Started
 1. **Prerequisites**: Docker must be installed on your local machine.
