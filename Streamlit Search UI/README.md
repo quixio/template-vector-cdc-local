@@ -1,7 +1,7 @@
 # Using the Streamlit Vector Search UI
 The demo application contains a simple search UI (built with Streamlit) to help you test the vector search. 
 
-You can access it under the URL: http:// localhost:8082
+You can access it under the URL: _http://localhost:8082_
 
 For example, in the search UI, try searching for "battle in space" - the top result should be "The War of the Worlds". It's not quite right since the book is about a battle that takes place on Earth, but it looks like it's currently the best batch in our book catalog.
 
