@@ -8,7 +8,7 @@ This Python application uses Quix Streams to process real-time data and creates 
 - **Data Processing**:
   - Filters rows specific to books.
   - Simplifies data structure by merging and converting fields.
-  - Generates text embeddings for descriptions using `all-MiniLM-L6-v2` model.
+  - Generates text embeddings for descriptions using `BAAI/bge-small-en-v1.5` model.
 
 ## Configuration
 Set environment variables for input and output topics before running the script.
