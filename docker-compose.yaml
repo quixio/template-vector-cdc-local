@@ -1,4 +1,32 @@
 services:
+#  weaviate:
+#    command:
+#    - --host
+#    - 0.0.0.0
+#    - --port
+#    - '8080'
+#    - --scheme
+#    - http
+#    image: cr.weaviate.io/semitechnologies/weaviate:1.24.1
+#    ports:
+#    - "8080:8080"
+#    - "50051:50051"
+#    volumes:
+#    - weaviate_data:/var/lib/weaviate
+#    restart: on-failure:0
+#    environment:
+#      CLIP_INFERENCE_API: 'http://multi2vec-clip:8080'
+#      QUERY_DEFAULTS_LIMIT: 25
+#      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+#      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+#      DEFAULT_VECTORIZER_MODULE: 'multi2vec-clip'
+#      ENABLE_MODULES: 'multi2vec-clip'
+#      CLUSTER_HOSTNAME: 'node1'
+#      AUTOSCHEMA_ENABLED: 'false'
+#  multi2vec-clip:
+#    image: cr.weaviate.io/semitechnologies/multi2vec-clip:sentence-transformers-clip-ViT-B-32-multilingual-v1
+#    environment:
+#      ENABLE_CUDA: '0'
   redpanda:
     image: docker.redpanda.com/redpandadata/redpanda:v24.1.1
     command: |
@@ -78,55 +106,42 @@ services:
       PG_USER: root
       PG_DATABASE: test_db
       PG_SCHEMA: public
-      PG_TABLE: books
+      PG_TABLE: Products
       PG_PASSWORD: root
       Quix__Broker__Address: redpanda:9092
     depends_on:
       - postgresdb
       - redpanda
-  qdrant:
-    image: qdrant/qdrant
-    container_name: qdrant
-    ports:
-      - "6333:6333"
-  qd_writer:
-    container_name: ingest_to_qdrant
+  wv_writer:
+    container_name: ingest_to_weaviate
     volumes:
       - /dev/null:/app/.env
     build:
-      context: "./Ingest to Qdrant"
+      context: "./Ingest to Weaviate"
       dockerfile: dockerfile
+    env_file:
+      - "./Ingest to Weaviate/.env"
     environment:
-      input: embeddings-fastembed-V1
-      qd_host: qdrant
-      qd_port: 6333
-      qd_collection: books
       Quix__Broker__Address: redpanda:9092
     depends_on:
-      - qdrant
       - redpanda
-  create_embeddings:
-    container_name: create_embeddings
-    build:
-      context: "./Create Embeddings with FastEmbed"
-    environment:
-      input: postgres-cdc-data
-      output: embeddings-fastembed-V1
-      Quix__Broker__Address: redpanda:9092
-      PG_TABLE: books
-    depends_on:
-      - redpanda
+#  create_embeddings:
+#    container_name: create_embeddings
+#    build:
+#      context: "./Create Embeddings with FastEmbed"
+#    environment:
+#      Quix__Broker__Address: redpanda:9092
+#      PG_TABLE: books
+#    depends_on:
+#      - redpanda
   streamlit_search:
     container_name: streamlit_search
     build:
       context: "./Streamlit Search UI"
       dockerfile: dockerfile
+    env_file:
+      - "./Streamlit Search UI/.env"
     environment:
-      qd_host: qdrant
-      qd_port: 6333
-      qd_collection: books
       Quix__Broker__Address: redpanda:9092
     ports:
       - "8082:80"
-    depends_on:
-      - qdrant

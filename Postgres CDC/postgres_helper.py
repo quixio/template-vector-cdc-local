@@ -25,11 +25,17 @@ def init_starter_table(table_name: str):
     conn = connect_postgres()
     query = f'''
     CREATE TABLE {table_name} (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        description TEXT NOT NULL,
-        author VARCHAR(255) NOT NULL,
-        year INT NOT NULL
+            product_id TEXT,
+            title TEXT,
+            category TEXT,
+            sub_category TEXT,
+            image_url TEXT,
+            brand TEXT,
+            description TEXT,
+            color TEXT[],
+            material TEXT[],
+            price NUMERIC,
+            rating NUMERIC
         );
     '''
     try:
