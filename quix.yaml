@@ -11,3 +11,4 @@ deployments: []
 topics:
   - name: postgres-cdc-source
   - name: embeddings-sbert-v1
+  - name: transform
