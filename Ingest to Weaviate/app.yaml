@@ -1,4 +1,4 @@
-name: qd_writer
+name: Ingest to Weaviate
 language: Python
 variables:
   - name: input
@@ -9,17 +9,17 @@ variables:
   - name: qd_host
     inputType: FreeText
     description: The db host
-    defaultValue: 'qdrant'
+    defaultValue: qdrant
     required: true
   - name: qd_port
     inputType: FreeText
     description: The db port
-    defaultValue: '6333'
+    defaultValue: 6333
     required: true
   - name: qd_collection
     inputType: FreeText
     description: The db name
-    defaultValue: 'test_db'
+    defaultValue: test_db
     required: true
 dockerfile: dockerfile
 runEntryPoint: main.py
