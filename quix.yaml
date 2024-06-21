@@ -55,6 +55,15 @@ deployments:
         description: ''
         required: false
         value: root
+  - name: Demo PostgreSQL Database
+    application: Demo PostgreSQL Database
+    version: latest
+    deploymentType: Service
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    variables: []
 
 # This section describes the Topics of the data pipeline
 topics:
