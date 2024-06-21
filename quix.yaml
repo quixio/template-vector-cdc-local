@@ -5,7 +5,56 @@ metadata:
   version: 1.0
 
 # This section describes the Deployments of the data pipeline
-deployments: []
+deployments:
+  - name: PostgreSQL CDC
+    application: Postgres CDC
+    version: latest
+    deploymentType: Service
+    resources:
+      cpu: 200
+      memory: 500
+      replicas: 1
+    variables:
+      - name: output
+        inputType: OutputTopic
+        description: This is the output topic
+        required: true
+        value: postgres-cdc-source
+      - name: PG_HOST
+        inputType: FreeText
+        description: Host name of Postgres
+        required: true
+        value: postgresdb
+      - name: PG_PORT
+        inputType: FreeText
+        description: Port of Postgres
+        required: true
+        value: 80
+      - name: PG_USER
+        inputType: FreeText
+        description: Username of Postgres
+        required: true
+        value: root
+      - name: PG_DATABASE
+        inputType: FreeText
+        description: Database name of Postgres
+        required: true
+        value: test_db
+      - name: PG_SCHEMA
+        inputType: FreeText
+        description: Name of schema for CDC
+        required: true
+        value: public
+      - name: PG_TABLE
+        inputType: FreeText
+        description: Name of table for CDC
+        required: true
+        value: products
+      - name: PG_PASSWORD
+        inputType: FreeText
+        description: ''
+        required: false
+        value: root
 
 # This section describes the Topics of the data pipeline
 topics:
