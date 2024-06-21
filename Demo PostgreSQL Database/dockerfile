@@ -2,9 +2,9 @@
 FROM postgres:13
 
 # Set environment variables
-# ENV POSTGRES_USER=root
-# ENV POSTGRES_PASSWORD=root
-# ENV POSTGRES_DB=test_db
+ENV POSTGRES_USER=root
+ENV POSTGRES_PASSWORD=root
+ENV POSTGRES_DB=test_db
 
 # Install the necessary packages for building wal2json
 RUN apt-get update && apt-get install -y \
@@ -22,7 +22,7 @@ RUN git clone https://github.com/eulerto/wal2json.git \
     && rm -rf wal2json
 
 # Expose port 5432
-# EXPOSE 5432
+EXPOSE 5432
 
 # Override the default command to ensure wal_level is set to logical
 CMD ["postgres", "-c", "wal_level=logical"]
