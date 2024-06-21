@@ -4,7 +4,7 @@ variables:
   - name: input
     inputType: InputTopic
     description: Name of the input topic to listen to.
-    defaultValue: transform
+    defaultValue: postgres-cdc-source
     required: false
   - name: qd_host
     inputType: FreeText
